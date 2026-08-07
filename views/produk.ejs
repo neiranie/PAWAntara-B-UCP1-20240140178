@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Produk - Toko Sembako Ariesta</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <main>
+    <h1>Daftar Produk</h1>
+
+    <form method="GET" action="/produk">
+      <label for="search">Cari produk:</label>
+      <input type="text" id="search" name="search" value="<%= search || '' %>">
+      <button type="submit">Cari</button>
+    </form>
+
+    <section>
+      <% if (produkList.length === 0) { %>
+        <p>Produk tidak ditemukan.</p>
+      <% } else { %>
+        <% produkList.forEach(p => { %>
+          <article>
+            <h3><a href="/produk/<%= p.id %>"><%= p.name %></a></h3>
+            <p>Kategori: <%= p.category %></p>
+            <p>Harga: Rp <%= p.price %></p>
+            <p>Stok: <%= p.stock %></p>
+          </article>
+        <% }) %>
+      <% } %>
+    </section>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>

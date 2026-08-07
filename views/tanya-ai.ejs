@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tanya AI - Toko Sembako Ariesta</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <main>
+    <h1>Tanya AI</h1>
+    <section id="chat-box">
+      <p>Silakan tanyakan sesuatu seputar toko kami.</p>
+    </section>
+
+    <form id="chat-form" aria-label="Form Tanya AI">
+      <label for="pertanyaan">Pertanyaan kamu:</label>
+      <textarea id="pertanyaan" name="pertanyaan" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>

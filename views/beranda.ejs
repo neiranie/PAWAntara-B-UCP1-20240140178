@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Beranda - Toko Sembako Ariesta</title>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <main>
+    <section class="hero">
+      <h1>Selamat Datang di Toko Sembako Ariesta</h1>
+      <p>Belanja kebutuhan pokok jadi lebih mudah</p>
+    </section>
+    <section>
+      <h2>Produk Pilihan</h2>
+      <% preview.forEach(p => { %>
+        <article>
+          <h3><%= p.name %></h3>
+          <p>Rp <%= p.price %></p>
+        </article>
+      <% }) %>
+    </section>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>
