@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <%- include('partials/head') %>
   <title>Beranda - Toko Sembako Ariesta</title>
 </head>
-<body>
+<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
-  <main>
-    <section class="hero">
-      <h1>Selamat Datang di Toko Sembako Ariesta</h1>
-      <p>Belanja kebutuhan pokok jadi lebih mudah</p>
+
+  <main class="max-w-6xl mx-auto px-6 flex-1">
+    <section class="hero-title text-center py-16">
+      <h1 class="font-heading text-4xl font-bold text-brand-dark mb-4">
+        Selamat Datang di Toko Sembako Ariesta
+      </h1>
+      <p class="text-gray-600">Belanja kebutuhan pokok jadi lebih mudah</p>
     </section>
-    <section>
-      <h2>Produk Pilihan</h2>
-      <% preview.forEach(p => { %>
-        <article>
-          <h3><%= p.name %></h3>
-          <p>Rp <%= p.price %></p>
-        </article>
-      <% }) %>
+
+    <section class="pb-16">
+      <h2 class="font-heading text-2xl font-semibold text-brand-dark mb-6 text-center">
+        Produk Pilihan
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <% preview.forEach(p => { %>
+          <article class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition">
+            <h3 class="font-heading font-semibold text-lg text-brand-dark mb-2"><%= p.name %></h3>
+            <p class="text-brand-gold font-semibold">Rp <%= p.price.toLocaleString('id-ID') %></p>
+          </article>
+        <% }) %>
+      </div>
     </section>
   </main>
+
   <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
 </body>
 </html>

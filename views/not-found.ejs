@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <%- include('partials/head') %>
   <title>Produk Tidak Ditemukan - Toko Sembako Ariesta</title>
 </head>
-<body>
+<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
-  <main>
-    <section>
-      <h1>Produk Tidak Ditemukan</h1>
-      <p>Maaf, produk yang kamu cari tidak tersedia.</p>
-      <a href="/produk">← Kembali ke Produk</a>
-    </section>
+
+  <main class="max-w-xl mx-auto px-6 py-20 text-center flex-1">
+    <h1 class="font-heading text-2xl font-bold text-brand-dark mb-4">Produk Tidak Ditemukan</h1>
+    <p class="text-gray-500 mb-6">Maaf, produk yang kamu cari tidak tersedia.</p>
+    <a href="/produk" class="text-brand hover:text-brand-dark font-medium">&larr; Kembali ke Produk</a>
   </main>
+
   <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
 </body>
 </html>

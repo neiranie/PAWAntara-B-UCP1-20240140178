@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <%- include('partials/head') %>
   <title>Produk - Toko Sembako Ariesta</title>
 </head>
-<body>
+<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
-  <main>
-    <h1>Daftar Produk</h1>
 
-    <form method="GET" action="/produk">
-      <label for="search">Cari produk:</label>
-      <input type="text" id="search" name="search" value="<%= search || '' %>">
-      <button type="submit">Cari</button>
+  <main class="max-w-6xl mx-auto px-6 py-10 flex-1">
+    <h1 class="font-heading text-3xl font-bold text-brand-dark mb-6">Daftar Produk</h1>
+
+    <form method="GET" action="/produk" class="flex gap-3 mb-8">
+      <label for="search" class="sr-only">Cari produk</label>
+      <input type="text" id="search" name="search" value="<%= search || '' %>"
+        placeholder="Cari produk..."
+        class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
+      <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition">
+        Cari
+      </button>
     </form>
 
-    <section>
-      <% if (produkList.length === 0) { %>
-        <p>Produk tidak ditemukan.</p>
-      <% } else { %>
+    <% if (produkList.length === 0) { %>
+      <p class="text-gray-500 text-center py-10">Produk tidak ditemukan.</p>
+    <% } else { %>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <% produkList.forEach(p => { %>
-          <article>
-            <h3><a href="/produk/<%= p.id %>"><%= p.name %></a></h3>
-            <p>Kategori: <%= p.category %></p>
-            <p>Harga: Rp <%= p.price %></p>
-            <p>Stok: <%= p.stock %></p>
+          <article class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition">
+            <h3 class="font-heading font-semibold text-lg text-brand-dark mb-2">
+              <a href="/produk/<%= p.id %>" class="hover:text-brand-gold"><%= p.name %></a>
+            </h3>
+            <p class="text-sm text-gray-500 mb-1">Kategori: <%= p.category %></p>
+            <p class="text-brand-gold font-semibold mb-1">Rp <%= p.price.toLocaleString('id-ID') %></p>
+            <p class="text-sm text-gray-500">Stok: <%= p.stock %></p>
           </article>
         <% }) %>
-      <% } %>
-    </section>
+      </div>
+    <% } %>
   </main>
+
   <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
 </body>
 </html>

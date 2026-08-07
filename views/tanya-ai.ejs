@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <%- include('partials/head') %>
   <title>Tanya AI - Toko Sembako Ariesta</title>
 </head>
-<body>
+<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
-  <main>
-    <h1>Tanya AI</h1>
-    <section id="chat-box">
-      <p>Silakan tanyakan sesuatu seputar toko kami.</p>
+
+  <main class="max-w-xl mx-auto px-6 py-10 flex-1">
+    <h1 class="font-heading text-2xl font-bold text-brand-dark mb-6">Tanya AI</h1>
+
+    <section id="chat-box" class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6 min-h-[150px]">
+      <p class="text-gray-500">Silakan tanyakan sesuatu seputar toko kami.</p>
     </section>
 
-    <form id="chat-form" aria-label="Form Tanya AI">
-      <label for="pertanyaan">Pertanyaan kamu:</label>
-      <textarea id="pertanyaan" name="pertanyaan" required></textarea>
-      <button type="submit">Kirim</button>
+    <form id="chat-form" aria-label="Form Tanya AI" class="flex flex-col gap-3">
+      <label for="pertanyaan" class="font-medium text-brand-dark">Pertanyaan kamu:</label>
+      <textarea id="pertanyaan" name="pertanyaan" required rows="3"
+        class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand"></textarea>
+      <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition self-start">
+        Kirim
+      </button>
     </form>
   </main>
+
   <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
 </body>
 </html>

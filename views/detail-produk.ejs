@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <%- include('partials/head') %>
   <title><%= produk.name %> - Toko Sembako Ariesta</title>
 </head>
-<body>
+<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
-  <main>
-    <article>
-      <h1><%= produk.name %></h1>
-      <p>Kategori: <%= produk.category %></p>
-      <p>Harga: Rp <%= produk.price %></p>
-      <p>Stok: <%= produk.stock %></p>
-      <a href="/produk">← Kembali ke Produk</a>
+
+  <main class="max-w-2xl mx-auto px-6 py-10 flex-1">
+    <article class="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+      <h1 class="font-heading text-2xl font-bold text-brand-dark mb-4"><%= produk.name %></h1>
+      <p class="text-gray-500 mb-2">Kategori: <%= produk.category %></p>
+      <p class="text-brand-gold font-semibold text-xl mb-2">Rp <%= produk.price.toLocaleString('id-ID') %></p>
+      <p class="text-gray-500 mb-6">Stok: <%= produk.stock %></p>
+      <a href="/produk" class="text-brand hover:text-brand-dark font-medium">&larr; Kembali ke Produk</a>
     </article>
   </main>
+
   <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
 </body>
 </html>

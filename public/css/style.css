@@ -1,0 +1,18 @@
+/* Mobile default (di bawah 768px), styling utama sudah di-handle Tailwind */
+
+/* Breakpoint tablet/desktop kecil */
+@media (min-width: 768px) {
+  #nav-menu {
+    display: flex !important;
+  }
+  #hamburger-btn {
+    display: none;
+  }
+}
+
+/* Breakpoint desktop besar */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
