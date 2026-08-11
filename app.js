@@ -11,6 +11,15 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const session = require('express-session');
+
+app.use(session({
+  secret: 'toko-sembako-ariesta-secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 1000 * 60 * 60 }, // 1 jam
+}));
+
 // Custom middleware: logger
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);

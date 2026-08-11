@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const products = require('../data/product');
+const { authPageMiddleware } = require('../middleware/auth');
 
 router.get('/', (req, res) => {
   const preview = products.slice(0, 3);
@@ -31,6 +32,14 @@ router.get('/produk/:id', (req, res) => {
 
 router.get('/tanya-ai', (req, res) => {
   res.render('tanya-ai');
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', { error: null });
+});
+
+router.get('/dashboard', authPageMiddleware, (req, res) => {
+  res.render('dashboard');
 });
 
 module.exports = router;

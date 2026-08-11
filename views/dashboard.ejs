@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include('partials/head') %>
+  <title>Dashboard - Toko Sembako Ariesta</title>
+</head>
+<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
+  <%- include('partials/navbar') %>
+
+  <main class="max-w-4xl mx-auto px-6 py-10 flex-1 w-full">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="font-heading text-2xl font-bold text-brand-dark">Dashboard Admin</h1>
+      <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+        Logout
+      </button>
+    </div>
+    <p class="text-gray-500">Dashboard produk akan ditambahkan di tahap berikutnya.</p>
+  </main>
+
+  <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
+  <script>
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      const res = await fetch('/api/logout', { method: 'POST' });
+      const data = await res.json();
+      if (data.status === 'success') {
+        window.location.href = '/login';
+      }
+    });
+  </script>
+</body>
+</html>
