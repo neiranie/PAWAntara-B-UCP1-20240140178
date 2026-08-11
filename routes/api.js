@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const products = require('../data/product');
 const adminUser = require('../data/admin');
 const { authMiddleware } = require('../middleware/auth');
+const { getChatReply } = require('../data/chatResponses');
 
 // GET semua produk (publik), mendukung filter ?kategori= dan ?search=
 router.get('/products', (req, res) => {
@@ -94,6 +95,19 @@ router.delete('/products/:id', authMiddleware, (req, res) => {
 
   products.splice(index, 1);
   res.json({ status: 'success', message: 'Produk dihapus' });
+});
+
+// CHAT dummy AI
+router.post('/chat', (req, res) => {
+  const { message } = req.body;
+
+  if (!message || message.trim() === '') {
+    return res.status(400).json({ status: 'error', message: 'Pertanyaan tidak boleh kosong' });
+  }
+
+  const reply = getChatReply(message);
+
+  res.json({ status: 'success', data: { reply } });
 });
 
 module.exports = router;

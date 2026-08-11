@@ -7,12 +7,14 @@
 <body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
 
-  <main class="max-w-xl mx-auto px-6 py-10 flex-1">
+  <main class="max-w-xl mx-auto px-6 py-10 flex-1 w-full">
     <h1 class="font-heading text-2xl font-bold text-brand-dark mb-6">Tanya AI</h1>
 
-    <section id="chat-box" class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6 min-h-[150px]">
-      <p class="text-gray-500">Silakan tanyakan sesuatu seputar toko kami.</p>
+    <section id="chat-box" class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6 min-h-[200px] max-h-[400px] overflow-y-auto flex flex-col gap-3">
+      <p class="text-gray-500 text-sm">Silakan tanyakan sesuatu seputar toko kami (jam buka, ongkir, pembayaran, stok).</p>
     </section>
+
+    <p id="chat-error" class="text-red-600 text-sm mb-3 hidden"></p>
 
     <form id="chat-form" aria-label="Form Tanya AI" class="flex flex-col gap-3">
       <label for="pertanyaan" class="font-medium text-brand-dark">Pertanyaan kamu:</label>
@@ -26,5 +28,6 @@
 
   <%- include('partials/footer') %>
   <script src="/js/main.js"></script>
+  <script src="/js/chat.js"></script>
 </body>
 </html>
