@@ -9,17 +9,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/produk', (req, res) => {
-  let filtered = products;
   const { kategori, search } = req.query;
-
-  if (kategori) {
-    filtered = filtered.filter(p => p.category.toLowerCase() === kategori.toLowerCase());
-  }
-  if (search) {
-    filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
-  }
-
-  res.render('produk', { produkList: filtered, kategori, search });
+  res.render('product', { kategori: kategori || '', search: search || '' });
 });
 
 router.get('/produk/:id', (req, res) => {

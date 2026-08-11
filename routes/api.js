@@ -5,9 +5,19 @@ const products = require('../data/product');
 const adminUser = require('../data/admin');
 const { authMiddleware } = require('../middleware/auth');
 
-// GET semua produk (publik)
+// GET semua produk (publik), mendukung filter ?kategori= dan ?search=
 router.get('/products', (req, res) => {
-  res.json({ status: 'success', data: products });
+  let filtered = products;
+  const { kategori, search } = req.query;
+
+  if (kategori) {
+    filtered = filtered.filter(p => p.category.toLowerCase() === kategori.toLowerCase());
+  }
+  if (search) {
+    filtered = filtered.filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
+  }
+
+  res.json({ status: 'success', data: filtered });
 });
 
 // LOGIN
