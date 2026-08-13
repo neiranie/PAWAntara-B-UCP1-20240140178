@@ -4,14 +4,14 @@
   <%- include('partials/head') %>
   <title>Tanya AI - Toko Sembako Ariesta</title>
 </head>
-<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
+<body class="font-body text-brand-dark min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
 
   <main class="max-w-xl mx-auto px-6 py-10 flex-1 w-full">
     <h1 class="font-heading text-2xl font-bold text-brand-dark mb-6">Tanya AI</h1>
 
-    <section id="chat-box" class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6 min-h-[200px] max-h-[400px] overflow-y-auto flex flex-col gap-3">
-      <p class="text-gray-500 text-sm">Silakan tanyakan sesuatu seputar toko kami (jam buka, ongkir, pembayaran, stok).</p>
+    <section id="chat-box" class="glass-card rounded-2xl p-6 mb-6 min-h-[200px] max-h-[400px] overflow-y-auto flex flex-col gap-3">
+      <p class="text-brand-dark/70 text-sm">Silakan tanyakan sesuatu seputar toko kami (jam buka, ongkir, pembayaran, stok).</p>
     </section>
 
     <p id="chat-error" class="text-red-600 text-sm mb-3 hidden"></p>
@@ -19,7 +19,7 @@
     <form id="chat-form" aria-label="Form Tanya AI" class="flex flex-col gap-3">
       <label for="pertanyaan" class="font-medium text-brand-dark">Pertanyaan kamu:</label>
       <textarea id="pertanyaan" name="pertanyaan" required rows="3"
-        class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand"></textarea>
+        class="glass-pill rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand"></textarea>
       <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition self-start">
         Kirim
       </button>

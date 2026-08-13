@@ -4,24 +4,36 @@
   <%- include('partials/head') %>
   <title>Produk - Toko Sembako Ariesta</title>
 </head>
-<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
+<body class="font-body text-brand-dark min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
 
   <main class="max-w-6xl mx-auto px-6 py-10 flex-1">
     <h1 class="font-heading text-3xl font-bold text-brand-dark mb-6">Daftar Produk</h1>
 
-    <form id="filter-form" class="flex gap-3 mb-8">
-      <label for="search" class="sr-only">Cari produk</label>
-      <input type="text" id="search" name="search" value="<%= search %>"
-        placeholder="Cari produk..."
-        class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
-      <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition">
-        Cari
-      </button>
+    <form id="filter-form" class="flex flex-col gap-3 mb-8 min-w-0">
+      <div class="flex gap-3 min-w-0">
+        <label for="search" class="sr-only">Cari produk</label>
+        <input type="text" id="search" name="search" value="<%= search %>"
+          placeholder="Cari produk..." autocomplete="off"
+          class="glass-pill flex-1 min-w-0 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
+        <button type="submit" class="bg-brand text-white px-6 py-2 rounded-lg hover:bg-brand-dark transition shrink-0">
+          Cari
+        </button>
+      </div>
+
+      <div class="min-w-0">
+        <label for="kategori" class="sr-only">Filter kategori</label>
+        <select id="kategori" name="kategori"
+          class="glass-select w-full rounded-lg pl-4 py-2 text-sm leading-normal focus:outline-none focus:ring-2 focus:ring-brand cursor-pointer">
+          <option value="">Semua Kategori</option>
+          <option value="sembako" <%= kategori === 'sembako' ? 'selected' : '' %>>Sembako</option>
+          <option value="bumbu" <%= kategori === 'bumbu' ? 'selected' : '' %>>Bumbu</option>
+        </select>
+      </div>
     </form>
 
-    <div id="produk-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <p class="text-gray-500">Memuat produk...</p>
+    <div id="produk-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 min-h-[200px]">
+      <p class="text-brand-dark/60">Memuat produk...</p>
     </div>
   </main>
 

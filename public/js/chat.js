@@ -9,7 +9,7 @@ function addBubble(text, sender) {
   if (sender === 'user') {
     bubble.className = 'self-end bg-brand text-white rounded-lg px-4 py-2 max-w-[80%]';
   } else {
-    bubble.className = 'self-start bg-brand-light border border-gray-200 text-gray-800 rounded-lg px-4 py-2 max-w-[80%]';
+    bubble.className = 'self-start glass-pill rounded-lg px-4 py-2 max-w-[80%]';
   }
 
   bubble.textContent = text;

@@ -16,7 +16,7 @@ async function loadProducts() {
 
   data.data.forEach(p => {
     const tr = document.createElement('tr');
-    tr.className = 'border-b border-gray-100';
+    tr.className = 'border-b border-brand-dark/10';
     tr.innerHTML = `
       <td class="py-2 pr-4">${p.name}</td>
       <td class="py-2 pr-4">${p.category}</td>
@@ -27,6 +27,7 @@ async function loadProducts() {
         <button data-id="${p.id}" class="delete-btn text-red-600 hover:text-red-800 font-medium">Hapus</button>
       </td>
     `;
+    
     tableBody.appendChild(tr);
   });
 

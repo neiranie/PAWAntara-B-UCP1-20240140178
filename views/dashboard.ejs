@@ -4,7 +4,7 @@
   <%- include('partials/head') %>
   <title>Dashboard - Toko Sembako Ariesta</title>
 </head>
-<body class="font-body bg-brand-light text-gray-800 min-h-screen flex flex-col">
+<body class="font-body text-brand-dark min-h-screen flex flex-col">
   <%- include('partials/navbar') %>
 
   <main class="max-w-4xl mx-auto px-6 py-10 flex-1 w-full">
@@ -15,8 +15,7 @@
       </button>
     </div>
 
-    <!-- Form Tambah/Edit Produk -->
-    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-8">
+    <div class="glass-card rounded-2xl p-6 mb-8">
       <h2 id="form-title" class="font-heading text-lg font-semibold text-brand-dark mb-4">Tambah Produk Baru</h2>
       <p id="form-error" class="text-red-600 text-sm mb-3 hidden"></p>
 
@@ -25,22 +24,22 @@
 
         <div>
           <label for="name" class="font-medium text-brand-dark block mb-1">Nama Produk</label>
-          <input type="text" id="name" required class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
+          <input type="text" id="name" required class="glass-pill w-full rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
         </div>
 
         <div>
           <label for="category" class="font-medium text-brand-dark block mb-1">Kategori</label>
-          <input type="text" id="category" required class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
+          <input type="text" id="category" required class="glass-pill w-full rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
         </div>
 
         <div>
           <label for="price" class="font-medium text-brand-dark block mb-1">Harga (Rp)</label>
-          <input type="number" id="price" required min="0" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
+          <input type="number" id="price" required min="0" class="glass-pill w-full rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
         </div>
 
         <div>
           <label for="stock" class="font-medium text-brand-dark block mb-1">Stok</label>
-          <input type="number" id="stock" required min="0" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
+          <input type="number" id="stock" required min="0" class="glass-pill w-full rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand">
         </div>
 
         <div class="sm:col-span-2 flex gap-3">
@@ -54,13 +53,12 @@
       </form>
     </div>
 
-    <!-- Tabel Produk -->
-    <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+    <div class="glass-card rounded-2xl p-6">
       <h2 class="font-heading text-lg font-semibold text-brand-dark mb-4">Daftar Produk</h2>
       <div class="overflow-x-auto">
         <table class="w-full text-left text-sm">
           <thead>
-            <tr class="border-b border-gray-200 text-brand-dark">
+            <tr class="border-b border-brand-dark/15 text-brand-dark">
               <th class="py-2 pr-4">Nama</th>
               <th class="py-2 pr-4">Kategori</th>
               <th class="py-2 pr-4">Harga</th>
@@ -69,7 +67,6 @@
             </tr>
           </thead>
           <tbody id="product-table-body">
-            <!-- diisi lewat JS -->
           </tbody>
         </table>
       </div>
